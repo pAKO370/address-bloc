@@ -36,4 +36,13 @@
        expect(new_entry.email).to eq('augusta.king@lovelace.com')
      end
    end
+   describe "remove_entry" do
+   	it "removes an entry from the address book" do
+   		book.AddressBook.new
+   		book.remove_entry('Ada Lovelace', '010.012.1815'n 'augusta.king@lovelace.com')
+   		book.entries[0]
+
+   		expect(book.entries.size).to eq(1)
+   	end
+   end
  end
