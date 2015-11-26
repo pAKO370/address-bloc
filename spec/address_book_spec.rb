@@ -36,6 +36,7 @@
        expect(new_entry.email).to eq('augusta.king@lovelace.com')
      end
    end
+<<<<<<< HEAD
    describe "remove_entry" do
    	it "removes an entry from the address book" do
    		book = AddressBook.new
@@ -55,3 +56,6 @@
    end
 end
 
+=======
+ end
+>>>>>>> checkpoint-19-models
