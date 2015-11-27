@@ -97,38 +97,41 @@
    end
  
 
- describe "#import_from_entries_2" do
+  describe "#import_from_entries_2" do
     it "imports the correct number of entries" do 
 
       book.import_from_csv("entries_2.csv")
       expect(book.entries.size).to eq 3
     end
+
+    it 'imports all the entries' do
+      book.import_from_csv('entries_2.csv')
+      names = book.entries.map{ |entry| entry.name }
+      expect(names).to eq ['Amy', 'Kirra','Phil']
+    end
   
-  it "imports the 1st entry" do
-    book.import_from_csv("entries_2.csv")
+     it "imports the 1st entry" do
+       book.import_from_csv("entries_2.csv")
 
-    entry_one = book.entries[0]
-    check_entry(entry_one, "Phil", "555-555-4854", "phil@blocmail.com")
-
-    
-  end
+       entry_one = book.entries[0]
+       check_entry(entry_one, "Amy", "555-555-5415", "amy@blocmail.com")
+     end
 
      it "imports the 2nd entry" do
        book.import_from_csv("entries_2.csv")
        # Check the second entry
        entry_two = book.entries[1]
-       check_entry(entry_two, "Amy", "555-555-5415", "amy@blocmail.com")
+       check_entry(entry_two, "Kirra", "555-555-3660", "kirra@blocmail.com")
 
-       
+
      end
- 
+
      it "imports the 3rd entry" do
        book.import_from_csv("entries_2.csv")
        # Check the third entry
        entry_three = book.entries[2]
-      check_entry(entry_three, "Kirra", "555-555-3660", "kirra@blocmail.com")       
+              
+       check_entry(entry_three, "Phil", "555-555-4854", "phil@blocmail.com")
      end
-   end
-
- end
-
+  end
+end
