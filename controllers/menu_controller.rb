@@ -87,10 +87,22 @@ end
 		def read_csv
 		end
 		def view_by_number
-			print "What Entry Number would you like: "
-			view_number = gets.chomp
+			puts "What Entry Number would you like: "
+			number = 0
+			@address_book.entries.each do |entry|
+				puts "#{number} #{entry.name}"
+				number += 1
 
-			puts "Your entry number is #{view_number}"
+			end
+
+
+			view_number = gets.chomp.to_i
+
+			result = @address_book.entries[view_number]
+
+			puts "name: #{result.name}"
+			puts "phone: #{result.phone_number}"
+			puts "email: #{result.email}"
 		end
 
 		def entry_submenu(entry)
