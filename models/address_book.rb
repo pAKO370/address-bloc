@@ -1,3 +1,4 @@
+require 'csv'
 require_relative 'entry'
 
 class AddressBook
